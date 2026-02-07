@@ -1,55 +1,84 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: Added 5 specific principles for progressive todo app
+- Added sections: Phases I-V definitions, constraints, success criteria
+- Removed sections: None
+- Templates requiring updates: ✅ updated
+- Follow-up TODOs: None
+-->
+# In-Memory Console-Based Todo Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Simplicity First, Progressive Enhancement
+All development follows progressive enhancement strategy - start with simplest viable implementation and add complexity only when required by subsequent phases. Code must remain readable and maintainable throughout all phases. Each phase builds on previous without breaking functionality.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Clean Architecture and Separation of Concerns
+Maintain clear separation between UI, business logic, and data layers. Each component must have single responsibility and well-defined interfaces. Deterministic behavior required in early phases with extensibility for AI and cloud-native integrations.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Phase-Based Development (NON-NEGOTIABLE)
+Each phase must be independently runnable with strict technology constraints. Phase I: In-memory Python console app only. Phase II: Full-stack with Next.js/FastAPI/SQLModel. Phase III: AI integration with OpenAI ChatKit. Phase IV: Kubernetes deployment. Phase V: Advanced cloud with Kafka/Dapr.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Technology Constraint Adherence
+Technology usage must strictly follow phase definitions - no premature optimization or cross-phase dependencies. Each phase must be completed with specified technologies only before advancing. Configuration via environment variables only, no hardcoded secrets.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Production-Grade Practices Evolution
+Production-quality practices introduced phase-by-phase rather than upfront implementation. Testing, documentation, and code quality maintained throughout progression. Each phase must meet production readiness standards for its scope.
 
-### [PRINCIPLE_6_NAME]
+### Deterministic Backend Operations
+All AI interactions and advanced features must map to deterministic backend operations. AI acts as assistant, not data owner. All operations must be traceable, safe, and explainable regardless of interface sophistication.
 
+## Phase Definitions and Standards
 
-[PRINCIPLE__DESCRIPTION]
+### Phase I - In-Memory Python Console App:
+- Language: Python only
+- No database, files, or external services
+- Data stored only in runtime memory
+- Single-user console interaction
+- Commands: add, list, update, delete, exit
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Phase II - Full-Stack Web Application:
+- Frontend: Next.js
+- Backend: FastAPI
+- ORM: SQLModel
+- Database: Neon (PostgreSQL)
+- REST-based API communication
+- Authentication-ready architecture
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Phase III - AI-Powered Todo Chatbot:
+- AI Integration: OpenAI ChatKit
+- Agent Framework: Agents SDK
+- Tooling: Official MCP SDK
+- Natural language interaction
+- AI as assistant, not data owner
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Phase IV - Local Kubernetes Deployment:
+- Containerization: Docker
+- Local Cluster: Minikube
+- Deployment: Helm charts
+- Operations: kubectl-ai, kagent
+- All services deployable locally
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Phase V - Advanced Cloud Deployment:
+- Messaging: Kafka
+- Service orchestration: Dapr
+- Cloud Provider: DigitalOcean DOKS
+- Microservices-ready architecture
+- Async communication and fault tolerance
+
+## Constraints and Requirements
+
+- Each phase must be independently runnable
+- No premature optimization for future phases
+- Configuration via environment variables only
+- Documentation required for every phase
+- No hardcoded secrets or credentials
+- Smooth transition between phases with minimal refactoring
+- Console phase runs fully offline
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Constitution governs all development decisions and supersedes other practices. All phases must follow specified technology constraints and architectural decisions. Amendments require explicit documentation of phase impact and migration considerations. Each phase must demonstrate successful completion before advancement. Code reviews must verify compliance with phase-specific constraints and cross-phase isolation.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2026-02-07 | **Last Amended**: 2026-02-07
